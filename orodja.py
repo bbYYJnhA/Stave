@@ -16,9 +16,12 @@ def shrani(url, ime_datoteke, vsili_prenos=False):
     try:
         print('Shranjujem {}...'.format(url), end='')
         sys.stdout.flush()
-        if os.path.isfile(ime_datoteke) and not vsili_prenos:
-            print('shranjeno že od prej!')
-            return
+        #
+        # Ne shrani, če je že shranjeno.
+        #
+        #if os.path.isfile(ime_datoteke) and not vsili_prenos:
+        #    print('shranjeno že od prej!')
+        #    return
         r = requests.get(url)
     except requests.exceptions.ConnectionError:
         print('stran ne obstaja!')
